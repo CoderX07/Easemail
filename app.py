@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
 import smtplib
-import json
 
 smtp_server = 'smtp.gmail.com'
 port = 587
