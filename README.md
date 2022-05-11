@@ -7,7 +7,7 @@ Easemail is an easy way to send Gmails from an external website.
 `Built purely with a HTML Front-End and a Python Backend`
 
 
-# Features
+## Features
 - Secure login process
 - Does not store data
 - Debugged so that only if logged in can you route to `/email`
@@ -17,7 +17,7 @@ Easemail is an easy way to send Gmails from an external website.
 *Recommended using a spam Gmail Address
 
 
-# Sample Code For Security Reasons
+## Sample Code For Security Reasons
 ```python 
 import smtplib
 server = smtplib.SMTP('smt.gmail.com', 587)
