@@ -3,7 +3,6 @@ import smtplib
 
 smtp_server = 'smtp.gmail.com'
 port = 587
-# login = False
 # context = ssl.create_default_context()
 app = Flask('app', template_folder='templates', static_folder='static')
 
@@ -17,29 +16,20 @@ def login():
   if request.method == 'POST':
     sender_email = request.form['account']
     password = request.form['password']
-    # login = True
-    # message = 'Subject: {}\n\n{}'.format(subject, body)
     try:
       server = smtplib.SMTP(smtp_server, port)
       server.ehlo()
       server.starttls()
       server.ehlo()
-      server.login(sender_email, password)
+      try:
+        server.login(sender_email, password)
+      except smtplib.SMTPAuthenticationError:
+        return redirect(url_for('login'))
     except Exception as e:
       print(e)
     return redirect(url_for('email'))
-    # return render_template('index.html', value = login)
   if request.method == 'GET':
     return render_template('index.html')
-
-# def check_login():
-#  try:
-#    sender_email
-#  except NameError as e:
-#    print(e)
-#    return "return redirect(url_for('login'))"
-#  else:
-#    return "return render_template('email.html', email=sender_email)"
 
 @app.route('/email', methods=['GET', 'POST'])
 def email():
