@@ -11,6 +11,7 @@ Easemail is an easy way to send Gmails from an external website.
 - Does not store data
 - Debugged so that only if logged in can you route to `/email`
 - Ability to logout and sign-in with a different Gmail
+- Checks with Google to see if email address + password is valid
 - Actually works 
 
 *Recommended using a spam Gmail Address
