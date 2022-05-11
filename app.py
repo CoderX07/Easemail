@@ -34,8 +34,6 @@ def login():
 @app.route('/email', methods=['GET', 'POST'])
 def email():
   global sender_email, server
-  #if login == False:
-   # return redirect(url_for('login'))
   if request.method == 'POST':
     if request.form['log_server'] == 'Logout':
       del sender_email
